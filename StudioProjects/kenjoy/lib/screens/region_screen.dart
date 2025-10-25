@@ -78,23 +78,21 @@ class _RegionListPageState extends State<RegionListPage> {
                     children: [
                       ...regions.map((region){
                         return ExpansionTile(
-                            title: Text(
-                              '${region.name}地方',
-                              style: TextStyle(
-                                fontSize: 20
-                              ),
-                             ),
-                            children: [
-                              Card(
-                                child: Text("1"),
-                              ),
-                              Card(
-                                child: Text("3"),
-                              ),
-                              Card(
-                                child: Text("2"),
-                              ),
-                            ],
+                          title: Text(
+                            '${region.name}地方',
+                            style: TextStyle(
+                              fontSize: 20
+                              ),r
+                            ),
+                          children: [
+                            ...prefectures.where((p) => p.region_id == region.id)
+                            .map((p) =>
+                            SizedBox(
+                              child:  Card(child: Center(child: Text('${p.name}'))),
+                              height: 50,
+                              width : 90
+                            ))
+                          ],
                         );
                       },),
                       ElevatedButton(
