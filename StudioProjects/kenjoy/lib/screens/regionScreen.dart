@@ -8,7 +8,7 @@ import '../models/region.dart';
 import '../models/prefecture.dart';
 import '../models/urls.dart';
 // モデルをインポート
-import 'prefecture_screen.dart';
+import 'prefectureScreen.dart';
 
 
 class RegionListPage extends StatefulWidget {
