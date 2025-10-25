@@ -82,7 +82,7 @@ class _RegionListPageState extends State<RegionListPage> {
                             '${region.name}地方',
                             style: TextStyle(
                               fontSize: 20
-                              ),r
+                              ),
                             ),
                           children: [
                             ...prefectures.where((p) => p.region_id == region.id)
