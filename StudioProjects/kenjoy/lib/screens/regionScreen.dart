@@ -1,18 +1,18 @@
-import 'package:flutter/foundation.dart';
-import 'package:flutter/material.dart';
 import 'dart:convert';
-import 'package:flutter/cupertino.dart';
-import 'package:flutter/rendering.dart';
-import 'package:http/http.dart' as http;
-import '../models/region.dart';
-import '../models/prefecture.dart';
-import '../models/urls.dart';
-// モデルをインポート
-import 'prefectureScreen.dart';
 
+import 'package:flutter/material.dart';
+import 'package:go_router/go_router.dart';
+import 'package:http/http.dart' as http;
+import 'package:kenjoy/screens/recordScreen.dart';
+
+import '../models/prefecture.dart';
+import '../models/region.dart';
+import '../models/urls.dart';
 
 class RegionListPage extends StatefulWidget {
   const RegionListPage({super.key});
+
+  static const path = '/';
 
   @override
   State<RegionListPage> createState() => _RegionListPageState();
@@ -23,9 +23,8 @@ class _RegionListPageState extends State<RegionListPage> {
   List<Prefecture> prefectures = [];
   bool isLoading = true;
 
-
   @override
-  void initState(){
+  void initState() {
     super.initState();
     fetchData();
   }
@@ -37,12 +36,13 @@ class _RegionListPageState extends State<RegionListPage> {
       final regionResponse = await http.get(Uri.parse(regionUrl));
       final prefResponse = await http.get(Uri.parse(prefUrl));
 
-      if (regionResponse.statusCode == 200&& prefResponse.statusCode == 200) {
+      if (regionResponse.statusCode == 200 && prefResponse.statusCode == 200) {
         final List<dynamic> regionJson = jsonDecode(regionResponse.body);
         final List<dynamic> prefJson = jsonDecode(prefResponse.body);
         setState(() {
           regions = regionJson.map((json) => Region.fromJson(json)).toList();
-          prefectures = prefJson.map((json) => Prefecture.fromJson(json)).toList();
+          prefectures =
+              prefJson.map((json) => Prefecture.fromJson(json)).toList();
           isLoading = false;
           debugPrint('Success load regions: ${regionResponse.statusCode}');
           debugPrint('Region response body: ${regionResponse.body}');
@@ -57,7 +57,6 @@ class _RegionListPageState extends State<RegionListPage> {
         debugPrint('Prefecture status: ${prefResponse.statusCode}');
         debugPrint('Pref response body: ${prefResponse.body}');
       }
-
     } catch (e) {
       setState(() {
         isLoading = false;
@@ -73,45 +72,49 @@ class _RegionListPageState extends State<RegionListPage> {
       body: isLoading
           ? const Center(child: CircularProgressIndicator())
           : Container(
-            color: Colors.blue,
-            child: ListView(
-                    children: [
-                      ...regions.map((region){
-                        return ExpansionTile(
-                          title: Text(
-                            '${region.name}地方',
-                            style: TextStyle(
-                              fontSize: 20
-                              ),
-                            ),
-                          children: [
-                            ...prefectures.where((p) => p.region_id == region.id)
-                            .map((p) =>
-                            SizedBox(
-                              child:  Card(child: Center(child: Text('${p.name}'))),
-                              height: 50,
-                              width : 90
-                            ))
-                          ],
-                        );
-                      },),
-                      ElevatedButton(
-                          onPressed: (){},
-                          child: Text('決定',
-                            style: TextStyle(
-                              fontSize: 30,
-                              color: Colors.red
-                            ),
-                          ),
-                        style: ElevatedButton.styleFrom(
-                          minimumSize: Size(10, 50)
+              color: Theme.of(context).scaffoldBackgroundColor,
+              child: ListView(
+                children: [
+                  ...regions.map(
+                    (region) {
+                      return ExpansionTile(
+                        title: Text(
+                          '${region.name}地方',
+                          style: TextStyle(fontSize: 20),
                         ),
-                      ),
-                    ],
+                        children: [
+                          ...prefectures
+                              .where((p) => p.region_id == region.id)
+                              .map((p) => SizedBox(
+                                  height: 50,
+                                  width: 90,
+                                  child: Card(
+                                      child: Center(
+                                          child: Text(
+                                    '${p.name}県',
+                                    style: TextStyle(
+                                        color: Theme.of(context).primaryColor),
+                                  ))))),
+                        ],
+                      );
+                    },
+                  ),
+                ],
+              ),
+            ),
+      floatingActionButton: Stack(
+        alignment: Alignment.bottomCenter,
+        children: [
+          Container(
+            alignment: Alignment.bottomCenter,
+            child: FloatingActionButton(
+              onPressed: () => GoRouter.of(context).push(Page1.path),
+              // アクションを記述
+              child: Text("決定"),
             ),
           ),
+        ],
+      ),
     );
   }
 }
-
-
