@@ -22,37 +22,36 @@ class _HomePageState extends State<HomePage> {
       ),
       body: Column(
         children: [
-          Text("svg"),
-          SvgPicture.asset(
-            'assets/images/kenjoy.svg',
-            semanticsLabel: 'logo',
-            width: 300,
-            height: 300,
+          Align(
+            alignment: Alignment.center,
+            child: SvgPicture.asset(
+              'assets/images/kenjoy.svg',
+              semanticsLabel: 'logo',
+              width: 300,
+              height: 300,
+            ),
           ),
-          Column(
-            children: [
-              Row(
-                  children: [
-                ElevatedButton(
-                  onPressed: () => GoRouter.of(context).push(RegionListPage.path),
-                  child: Text('Go to Region'),
-                ),
-                SizedBox(
-                  width: 10,
-                ),
-                ElevatedButton(
-                  onPressed: () => GoRouter.of(context).push(Page1.path),
-                  child: Text('Page1'),
-                ),
-                SizedBox(
-                  width: 10,
-                ),
-                ElevatedButton(
-                  onPressed: () {},
-                  child: Text('Page2(null)'),
-                ),
-              ]),
-            ],
+          Align(
+            child: Row(children: [
+              ElevatedButton(
+                onPressed: () => GoRouter.of(context).push(RegionListPage.path),
+                child: Text('Go to Region'),
+              ),
+              SizedBox(
+                width: 10,
+              ),
+              ElevatedButton(
+                onPressed: () => GoRouter.of(context).push(Page1.path),
+                child: Text('Page1'),
+              ),
+              SizedBox(
+                width: 10,
+              ),
+              ElevatedButton(
+                onPressed: () {},
+                child: Text('Page2(null)'),
+              ),
+            ]),
           ),
         ],
       ),
