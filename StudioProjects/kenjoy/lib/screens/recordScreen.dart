@@ -3,7 +3,7 @@ import 'package:go_router/go_router.dart';
 import 'regionScreen.dart';
 class Page1 extends StatefulWidget {
   const Page1({Key? key}) : super(key: key);
-  static const path = '/page1';
+  static const path = '/RecordList';
   @override
   _Page1State createState() => _Page1State();
 }

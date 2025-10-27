@@ -12,7 +12,7 @@ import '../models/urls.dart';
 class RegionListPage extends StatefulWidget {
   const RegionListPage({super.key});
 
-  static const path = '/';
+  static const path = '/Region';
 
   @override
   State<RegionListPage> createState() => _RegionListPageState();
