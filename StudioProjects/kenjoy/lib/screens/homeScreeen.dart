@@ -21,6 +21,7 @@ class _HomePageState extends State<HomePage> {
         title: const Text('Home'),
       ),
       body: Column(
+        mainAxisAlignment: MainAxisAlignment.center,
         children: [
           Align(
             alignment: Alignment.center,
@@ -32,7 +33,7 @@ class _HomePageState extends State<HomePage> {
             ),
           ),
           Align(
-            child: Row(children: [
+            child: Row(mainAxisAlignment: MainAxisAlignment.center, children: [
               ElevatedButton(
                 onPressed: () => GoRouter.of(context).push(RegionListPage.path),
                 child: Text('Go to Region'),
