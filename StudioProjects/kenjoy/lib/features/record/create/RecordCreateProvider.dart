@@ -4,7 +4,8 @@ import 'RecordCreateState.dart';
 
 final recordCreateProvider =
     NotifierProvider<RecordCreateNotifier, RecordCreateState>(
-        RecordCreateNotifier.new);
+  RecordCreateNotifier.new,
+);
 
 class RecordCreateNotifier extends Notifier<RecordCreateState> {
   @override
@@ -14,6 +15,10 @@ class RecordCreateNotifier extends Notifier<RecordCreateState> {
 
   void updateTitle(String value) {
     state = state.copyWith(title: value);
+  }
+
+  void updateContent(String value) {
+    state = state.copyWith(content: value);
   }
 
   Future<void> submit() async {

@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:go_router/go_router.dart';
 
+import '../features/record/create/RecordCreateScreen.dart';
 import '../screens/homeScreeen.dart';
 import '../screens/recordScreen.dart';
 import '../screens/regionScreen.dart';
@@ -26,7 +27,12 @@ final goRouter = GoRouter(
       path: Page1.path,
       pageBuilder: (BuildContext context, GoRouterState? state) => MaterialPage(
         child: Page1(),
-
+      ),
+    ),
+    GoRoute(
+      path: RecordCreatePage.path,
+      pageBuilder: (BuildContext context, GoRouterState? state) => MaterialPage(
+        child: RecordCreatePage(),
       ),
     ),
   ],
