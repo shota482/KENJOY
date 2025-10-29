@@ -46,7 +46,7 @@ class HomePage extends StatelessWidget {
               ),
               ElevatedButton(
                 onPressed: () => GoRouter.of(context).push(RecordCreatePage.path),
-                child: Text('Page2(null)'),
+                child: Text('recordCreatePage'),
               ),
             ]),
           ),
