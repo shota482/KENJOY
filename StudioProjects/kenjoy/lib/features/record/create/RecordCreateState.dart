@@ -10,7 +10,7 @@ class RecordCreateState {
     this.isLoading = false,
   });
 
-  RecordCreateState copywith({
+  RecordCreateState copyWith({
     String? title,
     String? content,
     bool? isLoading,
