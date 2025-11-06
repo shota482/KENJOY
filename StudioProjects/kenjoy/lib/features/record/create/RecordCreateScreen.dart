@@ -4,7 +4,7 @@ import 'package:kenjoy/features/record/create/RecordCreateProvider.dart';
 
 class RecordCreatePage extends ConsumerWidget {
   const RecordCreatePage({super.key});
-  static const path = '/RecordCreatePage';
+  static const path = '/Record/create';
 
   @override
   Widget build(BuildContext context, WidgetRef ref) {

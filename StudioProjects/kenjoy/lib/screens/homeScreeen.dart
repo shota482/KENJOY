@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/svg.dart';
 import 'package:go_router/go_router.dart';
-import 'package:kenjoy/screens/recordScreen.dart';
+import 'package:kenjoy/screens/page1.dart';
 
 import '../features/record/create/RecordCreateScreen.dart';
 import 'regionScreen.dart';
