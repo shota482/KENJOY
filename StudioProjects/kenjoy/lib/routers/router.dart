@@ -13,9 +13,14 @@ final goRouter = GoRouter(
     ShellRoute(
       builder: (context, state, child) {
         return Scaffold(
-          body: child,
-          bottomNavigationBar: const AppNavigationBar(),
-        );
+            body: child,
+            bottomNavigationBar: NavigationBarTheme(
+              data: NavigationBarThemeData(
+                  backgroundColor: Colors.orange.shade100,
+                  indicatorColor: Colors.orange.shade200,
+              ),
+              child: const AppNavigationBar(),
+            ));
       },
       routes: [
         GoRoute(
@@ -45,9 +50,9 @@ final goRouter = GoRouter(
     GoRoute(
       path: RegionListPage.path,
       name: 'RegionSelect',
-      pageBuilder: (BuildContext context, GoRouterState? state) =>
-          MaterialPage(
-            child: RegionListPage(),
-          ),
-    ),],
+      pageBuilder: (BuildContext context, GoRouterState? state) => MaterialPage(
+        child: RegionListPage(),
+      ),
+    ),
+  ],
 );

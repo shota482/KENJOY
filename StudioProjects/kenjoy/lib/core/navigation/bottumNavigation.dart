@@ -19,6 +19,7 @@ class AppNavigationBar extends StatelessWidget {
     };
 
     return NavigationBar(
+      labelBehavior: NavigationDestinationLabelBehavior.onlyShowSelected,
       selectedIndex: selectedIndex,
       onDestinationSelected: (index){
         switch (index){
