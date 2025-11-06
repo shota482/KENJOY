@@ -3,6 +3,7 @@ import 'package:flutter_svg/svg.dart';
 import 'package:go_router/go_router.dart';
 import 'package:kenjoy/screens/recordScreen.dart';
 
+import '../features/record/create/RecordCreateScreen.dart';
 import 'regionScreen.dart';
 
 class HomePage extends StatelessWidget {
@@ -44,8 +45,8 @@ class HomePage extends StatelessWidget {
                 width: 10,
               ),
               ElevatedButton(
-                onPressed: () {},
-                child: Text('Page2(null)'),
+                onPressed: () => GoRouter.of(context).push(RecordCreatePage.path),
+                child: Text('recordCreatePage'),
               ),
             ]),
           ),
