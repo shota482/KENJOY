@@ -6,7 +6,6 @@ import 'package:kenjoy/features/record/view/record_listview_screen.dart';
 
 import '../../features/record/map/map_review_screen.dart';
 import '../../screens/home_screen.dart';
-import '../../screens/page1.dart';
 
 class AppNavigationBar extends StatelessWidget {
   const AppNavigationBar({super.key});
