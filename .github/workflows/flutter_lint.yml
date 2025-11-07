@@ -1,9 +1,14 @@
-name: Flutter CI
+name: Flutter Linter
 
 on:
-  pull_request:
-    '**'
   push:
+    paths:
+      - '**/*.dart'
+      - '.github/workflows/flutter_lint.yml'
+  pull_request:
+    paths:
+      - '**/*.dart'
+      - '.github/workflows/flutter_lint.yml'
 
 jobs:
   analyze:
