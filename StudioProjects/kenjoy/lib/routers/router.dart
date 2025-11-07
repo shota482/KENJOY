@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:go_router/go_router.dart';
+import 'package:kenjoy/features/record/map/mapReview.dart';
 
 import '../core/navigation/bottumNavigation.dart';
 import '../features/record/create/RecordCreateScreen.dart';
@@ -44,6 +45,13 @@ final goRouter = GoRouter(
               MaterialPage(
             child: RecordCreatePage(),
           ),
+        ),
+        GoRoute(
+          path: MapReviewPage.path,
+          pageBuilder: (BuildContext context, GoRouterState? state) =>
+              MaterialPage(
+                child: MapReviewPage(),
+              ),
         ),
       ],
     ),
