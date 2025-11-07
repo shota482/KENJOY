@@ -1,6 +1,6 @@
 import 'package:riverpod/riverpod.dart';
 
-import 'RecordCreateState.dart';
+import 'record_create_state.dart';
 
 final recordCreateProvider =
     NotifierProvider<RecordCreateNotifier, RecordCreateState>(

@@ -1,10 +1,10 @@
 import 'package:flutter/material.dart';
 import 'package:go_router/go_router.dart';
-import 'package:kenjoy/features/record/create/RecordCreateScreen.dart';
-import 'package:kenjoy/features/record/map/mapReviewScreen.dart';
+import 'package:kenjoy/features/record/create/record_create_screen.dart';
 
 
-import '../../screens/homeScreeen.dart';
+import '../../features/record/map/mapReviewScreen.dart';
+import '../../screens/home_screen.dart';
 import '../../screens/page1.dart';
 
 class AppNavigationBar extends StatelessWidget {

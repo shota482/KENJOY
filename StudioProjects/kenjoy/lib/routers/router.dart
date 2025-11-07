@@ -2,11 +2,11 @@ import 'package:flutter/material.dart';
 import 'package:go_router/go_router.dart';
 import 'package:kenjoy/features/record/map/mapReviewScreen.dart';
 
-import '../core/navigation/bottumNavigation.dart';
-import '../features/record/create/RecordCreateScreen.dart';
-import '../screens/homeScreeen.dart';
+import '../core/navigation/bottum_navigation.dart';
+import '../features/record/create/record_create_screen.dart';
+import '../screens/home_screen.dart';
 import '../screens/page1.dart';
-import '../screens/regionScreen.dart';
+import '../screens/region_screen.dart';
 
 final goRouter = GoRouter(
   initialLocation: HomePage.path,
