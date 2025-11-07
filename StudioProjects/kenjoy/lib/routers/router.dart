@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:go_router/go_router.dart';
 
-import '../core/navigation/bottumNavigation.dart';
+import '../core/navigation/bottum_navigation.dart';
 import '../features/record/create/RecordCreateScreen.dart';
 import '../screens/homeScreeen.dart';
 import '../screens/page1.dart';
