@@ -1,0 +1,29 @@
+name: Flutter CI
+
+on:
+  pull_request:
+  push:
+    branches:
+      - main
+      - develop
+      - feature/**
+
+jobs:
+  analyze:
+    name: Analyze (flutter analyze)
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+
+      - name: Setup Flutter
+        uses: subosito/flutter-action@v2
+        with:
+          flutter-version: '3.24.0'  # Flutter のバージョンに合わせる
+
+      - name: Install dependencies
+        run: flutter pub get
+
+      - name: Run Linter
+        run: flutter analyze
