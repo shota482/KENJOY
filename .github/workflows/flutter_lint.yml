@@ -1,14 +1,23 @@
-name: Flutter CI
+name: Flutter Linter
 
 on:
-  pull_request:
-    '**'
   push:
+    paths:
+      - '**/*.dart'
+      - '.github/workflows/flutter_lint.yml'
+  pull_request:
+    paths:
+      - '**/*.dart'
+      - '.github/workflows/flutter_lint.yml'
+
 
 jobs:
   analyze:
     name: Analyze (flutter analyze)
     runs-on: ubuntu-latest
+    defaults:
+      run:
+        working-directory: StudioProjects/kenjoy 
     continue-on-error: true
 
     steps:
@@ -18,7 +27,7 @@ jobs:
       - name: Setup Flutter
         uses: subosito/flutter-action@v2
         with:
-          flutter-version: ">=3.6.0 <4.0.0" # Flutter のバージョンに合わせる
+          flutter-version: 3.29.3 # Flutter のバージョンに合わせる
 
       - name: Install dependencies
         run: flutter pub get
