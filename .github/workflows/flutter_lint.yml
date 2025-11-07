@@ -10,6 +10,7 @@ on:
       - '**/*.dart'
       - '.github/workflows/flutter_lint.yml'
 
+
 jobs:
   analyze:
     name: Analyze (flutter analyze)
