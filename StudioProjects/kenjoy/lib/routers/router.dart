@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:go_router/go_router.dart';
-import 'package:kenjoy/features/record/map/mapReview.dart';
+import 'package:kenjoy/features/record/map/mapReviewScreen.dart';
 
 import '../core/navigation/bottumNavigation.dart';
 import '../features/record/create/RecordCreateScreen.dart';
