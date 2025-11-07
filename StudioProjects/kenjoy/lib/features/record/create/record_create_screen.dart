@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
-import 'package:kenjoy/features/record/create/RecordCreateProvider.dart';
+import 'package:kenjoy/features/record/create/record_create_provider.dart';
 
 class RecordCreatePage extends ConsumerWidget {
   const RecordCreatePage({super.key});

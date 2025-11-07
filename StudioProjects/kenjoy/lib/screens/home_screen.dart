@@ -3,8 +3,8 @@ import 'package:flutter_svg/svg.dart';
 import 'package:go_router/go_router.dart';
 import 'package:kenjoy/screens/page1.dart';
 
-import '../features/record/create/RecordCreateScreen.dart';
-import 'regionScreen.dart';
+import '../features/record/create/record_create_screen.dart';
+import 'region_screen.dart';
 
 class HomePage extends StatelessWidget {
   const HomePage({super.key});
