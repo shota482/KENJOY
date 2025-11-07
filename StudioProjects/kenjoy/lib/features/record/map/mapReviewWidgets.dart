@@ -1,25 +1,21 @@
 import 'package:flutter/material.dart';
 import 'package:intl/intl.dart';
 
+import '../../../models/record.dart';
+
 class RecordSummaryCard extends StatelessWidget {
-  final String title;
-  final DateTime date;
-  final String pref;
-  final String? imageUrl;
+  final RecordType record;
   final VoidCallback? onTap;
 
   const RecordSummaryCard({
     super.key,
-    required this.title,
-    required this.date,
-    required this.pref,
-    required this.imageUrl,
+    required this.record,
     required this.onTap,
   });
 
   @override
   Widget build(BuildContext context) {
-    final formattedDate = DateFormat('yyyy/MM/dd').format(date);
+    final formattedDate = DateFormat('yyyy/MM/dd').format(record.startDate);
     return Card(
       child: InkWell(
         onTap: onTap,
@@ -39,39 +35,48 @@ class RecordSummaryCard extends StatelessWidget {
                     Row(
                       mainAxisAlignment: MainAxisAlignment.spaceBetween,
                       children: [
-                        Align(
-                          alignment: Alignment.topLeft,
-                          child: Text(
-                            pref,
-                            style: TextStyle(fontSize: 16, color: Colors.grey),
-                          ),
+                        Row(
+                          mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                          children: record.prefs.map((pref) {
+                            return Padding(
+                              padding: const EdgeInsets.fromLTRB(0,0,4,0),
+                              child: Align(
+                                alignment: Alignment.topLeft,
+                                child: Text(
+                                  pref,
+                                  style:
+                                      TextStyle(fontSize: 16, color: Colors.grey),
+                                ),
+                              ),
+                            );
+                          }).toList(),
                         ),
                         Align(
                           alignment: Alignment.topRight,
                           child: Text(formattedDate),
-                        )
+                        ),
                       ],
                     ),
-                    const SizedBox(height: 6,),
+                    const SizedBox(
+                      height: 6,
+                    ),
                     Align(
                       alignment: Alignment.centerLeft,
                       child: Text(
-                        title,
+                        record.title,
                         style: TextStyle(
                           fontSize: 18,
                           fontWeight: FontWeight.bold,
                         ),
                       ),
                     ),
-                    const SizedBox(height: 6,),
-                    Wrap(
-                      spacing: 8,
-                      runSpacing: 6,
-                      children: [
-                        _buildTag("タグ"),
-                        _buildTag("温泉旅行"),
-                        _buildTag("タグ"),
-                      ],
+                    const SizedBox(
+                      height: 6,
+                    ),
+                    Row(
+                      children: (record.tags ?? []).map((tag) => Padding(
+                            padding: const EdgeInsets.only(right: 8.0),
+                            child: _buildTag(tag),)).toList(),
                     ),
                   ],
                 ),

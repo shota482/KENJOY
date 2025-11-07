@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/svg.dart' show SvgPicture;
+import 'package:kenjoy/models/record.dart';
 
 import 'mapReviewWidgets.dart';
 
@@ -40,7 +41,6 @@ class _MapReviewPageState extends State<MapReviewPage> {
                     value: type,
                     child: Row(
                       children: [
-
                         const SizedBox(width: 8),
                         Text(type, style: const TextStyle(color: Colors.grey)),
                       ],
@@ -52,7 +52,6 @@ class _MapReviewPageState extends State<MapReviewPage> {
                   return mapTypes.map((type) {
                     return Row(
                       children: [
-
                         const SizedBox(width: 4),
                         Text(type, style: const TextStyle(color: Colors.grey)),
                       ],
@@ -84,39 +83,39 @@ class _MapReviewPageState extends State<MapReviewPage> {
             child: ListView(
               children: [
                 RecordSummaryCard(
-                  title: '誕生日',
-                  date: DateTime(2025, 10, 2),
-                  pref: "福岡",
-                  imageUrl: null,
                   onTap: () {},
+                  record: RecordType(
+                      title: '誕生日',
+                      startDate: DateTime(2025, 10, 2),
+                      prefs: ["福岡", "熊本"],tags: ["温泉","カフェ巡り"]),
                 ),
                 RecordSummaryCard(
-                  title: '誕生日',
-                  date: DateTime(2025, 10, 2),
-                  pref: "福岡",
-                  imageUrl: null,
                   onTap: () {},
+                  record: RecordType(
+                      title: '誕生日',
+                      startDate: DateTime(2025, 10, 2),
+                      prefs: ["福岡", "熊本"]),
                 ),
                 RecordSummaryCard(
-                  title: '誕生日',
-                  date: DateTime(2025, 10, 2),
-                  pref: "福岡",
-                  imageUrl: null,
                   onTap: () {},
+                  record: RecordType(
+                      title: '誕生日',
+                      startDate: DateTime(2025, 10, 2),
+                      prefs: ["福岡", "熊本"]),
                 ),
                 RecordSummaryCard(
-                  title: '誕生日',
-                  date: DateTime(2025, 10, 2),
-                  pref: "福岡",
-                  imageUrl: null,
                   onTap: () {},
+                  record: RecordType(
+                      title: '誕生日',
+                      startDate: DateTime(2025, 10, 2),
+                      prefs: ["福岡", "熊本"]),
                 ),
                 RecordSummaryCard(
-                  title: '誕生日',
-                  date: DateTime(2025, 10, 2),
-                  pref: "福岡",
-                  imageUrl: null,
                   onTap: () {},
+                  record: RecordType(
+                      title: '誕生日',
+                      startDate: DateTime(2025, 10, 2),
+                      prefs: ["福岡", "熊本"]),
                 ),
               ],
             ),
@@ -126,4 +125,3 @@ class _MapReviewPageState extends State<MapReviewPage> {
     );
   }
 }
-
