@@ -24,7 +24,7 @@ jobs:
       - name: Setup Flutter
         uses: subosito/flutter-action@v2
         with:
-          flutter-version: ">=3.6.0 <4.0.0" # Flutter のバージョンに合わせる
+          flutter-version: 3.29.3 # Flutter のバージョンに合わせる
 
       - name: Install dependencies
         run: flutter pub get
