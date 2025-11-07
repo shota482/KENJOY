@@ -1,17 +1,22 @@
-class RecordType {
+class RecordModel {
   final String title;
   final DateTime startDate;
   final DateTime? finDate;
   final String? text;
-  final List<String>? picUrls;
+  final List<String> picUrls;
   final List<String> prefs;
-  final List<String>? tags;
+  final List<String> tags;
 
+  RecordModel(
+      {required this.title,
+      required this.startDate,
+      this.finDate,
+      this.text,
+      this.picUrls = const [],
+      required this.prefs,
+      this.tags = const []});
 
-  RecordType(
-      {required this.title, required this.startDate, this.finDate, this.text, this.picUrls,required this.prefs,this.tags});
-
-  RecordType copyWith({
+  RecordModel copyWith({
     String? title,
     DateTime? startDate,
     DateTime? finDate,
@@ -20,14 +25,13 @@ class RecordType {
     List<String>? prefs,
     List<String>? tags,
   }) {
-    return RecordType(
-      title: title ?? this.title,
-      startDate: startDate ?? this.startDate,
-      finDate: finDate ?? this.finDate,
-      text: text ?? this.text,
-      picUrls: picUrls ?? this.picUrls,
-      prefs: prefs ?? this.prefs,
-      tags: tags ?? this.tags
-    );
+    return RecordModel(
+        title: title ?? this.title,
+        startDate: startDate ?? this.startDate,
+        finDate: finDate ?? this.finDate,
+        text: text ?? this.text,
+        picUrls: picUrls ?? this.picUrls,
+        prefs: prefs ?? this.prefs,
+        tags: tags ?? this.tags);
   }
 }

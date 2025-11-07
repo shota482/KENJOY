@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_svg/svg.dart' show SvgPicture;
 import 'package:kenjoy/models/record.dart';
 
-import 'mapReviewWidgets.dart';
+import 'map_review_widgets.dart';
 
 class MapReviewPage extends StatefulWidget {
   const MapReviewPage({super.key});
@@ -84,35 +84,35 @@ class _MapReviewPageState extends State<MapReviewPage> {
               children: [
                 RecordSummaryCard(
                   onTap: () {},
-                  record: RecordType(
+                  record: RecordModel(
                       title: '誕生日',
                       startDate: DateTime(2025, 10, 2),
                       prefs: ["福岡", "熊本"],tags: ["温泉","カフェ巡り"]),
                 ),
                 RecordSummaryCard(
                   onTap: () {},
-                  record: RecordType(
+                  record: RecordModel(
                       title: '誕生日',
                       startDate: DateTime(2025, 10, 2),
                       prefs: ["福岡", "熊本"]),
                 ),
                 RecordSummaryCard(
                   onTap: () {},
-                  record: RecordType(
+                  record: RecordModel(
                       title: '誕生日',
                       startDate: DateTime(2025, 10, 2),
                       prefs: ["福岡", "熊本"]),
                 ),
                 RecordSummaryCard(
                   onTap: () {},
-                  record: RecordType(
+                  record: RecordModel(
                       title: '誕生日',
                       startDate: DateTime(2025, 10, 2),
                       prefs: ["福岡", "熊本"]),
                 ),
                 RecordSummaryCard(
                   onTap: () {},
-                  record: RecordType(
+                  record: RecordModel(
                       title: '誕生日',
                       startDate: DateTime(2025, 10, 2),
                       prefs: ["福岡", "熊本"]),

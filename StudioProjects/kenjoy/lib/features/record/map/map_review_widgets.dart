@@ -4,7 +4,7 @@ import 'package:intl/intl.dart';
 import '../../../models/record.dart';
 
 class RecordSummaryCard extends StatelessWidget {
-  final RecordType record;
+  final RecordModel record;
   final VoidCallback? onTap;
 
   const RecordSummaryCard({
@@ -74,7 +74,7 @@ class RecordSummaryCard extends StatelessWidget {
                       height: 6,
                     ),
                     Row(
-                      children: (record.tags ?? []).map((tag) => Padding(
+                      children: record.tags.map((tag) => Padding(
                             padding: const EdgeInsets.only(right: 8.0),
                             child: _buildTag(tag),)).toList(),
                     ),
