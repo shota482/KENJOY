@@ -22,10 +22,14 @@ class RecordSummaryCard extends StatelessWidget {
         child: Row(
           children: [
             //TODO image from URL & fix size from screen size
-            Icon(
-              Icons.photo_size_select_actual_outlined,
-              size: 100,
-            ),
+            SizedBox(
+                height: 80,
+                width: 100,
+                child: record.picUrls.isEmpty
+                    ? Icon(Icons.picture_as_pdf)
+                    : Text(
+                        record.picUrls[0],
+                      )),
             Expanded(
               child: Padding(
                 padding: const EdgeInsets.all(8.0),
@@ -39,13 +43,13 @@ class RecordSummaryCard extends StatelessWidget {
                           mainAxisAlignment: MainAxisAlignment.spaceBetween,
                           children: record.prefs.map((pref) {
                             return Padding(
-                              padding: const EdgeInsets.fromLTRB(0,0,4,0),
+                              padding: const EdgeInsets.fromLTRB(0, 0, 4, 0),
                               child: Align(
                                 alignment: Alignment.topLeft,
                                 child: Text(
                                   pref,
-                                  style:
-                                      TextStyle(fontSize: 16, color: Colors.grey),
+                                  style: TextStyle(
+                                      fontSize: 16, color: Colors.grey),
                                 ),
                               ),
                             );
@@ -74,9 +78,12 @@ class RecordSummaryCard extends StatelessWidget {
                       height: 6,
                     ),
                     Row(
-                      children: record.tags.map((tag) => Padding(
-                            padding: const EdgeInsets.only(right: 8.0),
-                            child: _buildTag(tag),)).toList(),
+                      children: record.tags
+                          .map((tag) => Padding(
+                                padding: const EdgeInsets.only(right: 8.0),
+                                child: _buildTag(tag),
+                              ))
+                          .toList(),
                     ),
                   ],
                 ),

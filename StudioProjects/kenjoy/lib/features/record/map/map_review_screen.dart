@@ -1,71 +1,27 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:flutter_svg/svg.dart' show SvgPicture;
 import 'package:kenjoy/models/record.dart';
 
+import '../view/record_listview_state.dart';
 import 'map_review_widgets.dart';
 
-class MapReviewPage extends StatefulWidget {
+class MapReviewPage extends ConsumerWidget {
   const MapReviewPage({super.key});
 
   static const path = '/map/review';
 
   @override
-  State<MapReviewPage> createState() => _MapReviewPageState();
-}
+  Widget build(BuildContext context, WidgetRef ref) {
+    final records = ref.watch(recordListProvider); // 一覧データを取得
+    final notifier = ref.read(recordListProvider.notifier);
 
-class _MapReviewPageState extends State<MapReviewPage> {
-  String selectedMapType = 'my';
-  final mapTypes = ["my", '家族', '恋人'];
-
-  @override
-  Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
         title: const Text('マップ画面'),
-        actions: [
-          Padding(
-            padding: const EdgeInsets.only(right: 8.0),
-            child: DropdownButtonHideUnderline(
-              child: DropdownButton<String>(
-                value: selectedMapType,
-                icon: const Icon(Icons.arrow_drop_down, color: Colors.grey),
-                dropdownColor: Colors.grey[10],
-                style: const TextStyle(color: Colors.grey, fontSize: 16),
-                onChanged: (value) {
-                  setState(() {
-                    selectedMapType = value!;
-                  });
-                },
-                items: mapTypes.map((type) {
-                  return DropdownMenuItem<String>(
-                    value: type,
-                    child: Row(
-                      children: [
-                        const SizedBox(width: 8),
-                        Text(type, style: const TextStyle(color: Colors.grey)),
-                      ],
-                    ),
-                  );
-                }).toList(),
-                selectedItemBuilder: (context) {
-                  // AppBar 上に表示される部分
-                  return mapTypes.map((type) {
-                    return Row(
-                      children: [
-                        const SizedBox(width: 4),
-                        Text(type, style: const TextStyle(color: Colors.grey)),
-                      ],
-                    );
-                  }).toList();
-                },
-              ),
-            ),
-          ),
-        ],
       ),
-      body: Column(
-        mainAxisAlignment: MainAxisAlignment.center,
-        children: [
+      body: SafeArea(
+        child: Column(mainAxisAlignment: MainAxisAlignment.center, children: [
           Padding(
             padding: const EdgeInsets.all(8.0),
             child: Center(
@@ -80,47 +36,25 @@ class _MapReviewPageState extends State<MapReviewPage> {
           ),
           const Divider(),
           Expanded(
-            child: ListView(
-              children: [
-                RecordSummaryCard(
-                  onTap: () {},
-                  record: RecordModel(
-                      title: '誕生日',
-                      startDate: DateTime(2025, 10, 2),
-                      prefs: ["福岡", "熊本"],tags: ["温泉","カフェ巡り"]),
-                ),
-                RecordSummaryCard(
-                  onTap: () {},
-                  record: RecordModel(
-                      title: '誕生日',
-                      startDate: DateTime(2025, 10, 2),
-                      prefs: ["福岡", "熊本"]),
-                ),
-                RecordSummaryCard(
-                  onTap: () {},
-                  record: RecordModel(
-                      title: '誕生日',
-                      startDate: DateTime(2025, 10, 2),
-                      prefs: ["福岡", "熊本"]),
-                ),
-                RecordSummaryCard(
-                  onTap: () {},
-                  record: RecordModel(
-                      title: '誕生日',
-                      startDate: DateTime(2025, 10, 2),
-                      prefs: ["福岡", "熊本"]),
-                ),
-                RecordSummaryCard(
-                  onTap: () {},
-                  record: RecordModel(
-                      title: '誕生日',
-                      startDate: DateTime(2025, 10, 2),
-                      prefs: ["福岡", "熊本"]),
-                ),
-              ],
-            ),
+            child: records.isEmpty
+                ? const Center(child: Text('記録がまだありません'))
+                : ListView.builder(
+                    itemCount: records.length,
+                    itemBuilder: (context, index) {
+                      final record = records[index];
+                      return RecordSummaryCard(
+                        onTap: () {},
+                        record: RecordModel(
+                            title: record.title,
+                            startDate: record.startDate,
+                            prefs: record.prefs,
+                            picUrls: record.picUrls,
+                            tags: record.tags),
+                      );
+                      return null;
+                    }),
           ),
-        ],
+        ]),
       ),
     );
   }
