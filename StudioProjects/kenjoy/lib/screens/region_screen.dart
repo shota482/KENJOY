@@ -30,8 +30,8 @@ class _RegionListPageState extends State<RegionListPage> {
   }
 
   Future<void> fetchData() async {
-    const regionUrl = Urls.RegionUrl;
-    const prefUrl = Urls.PrefUrl;
+    const regionUrl = Urls.regionUrl;
+    const prefUrl = Urls.prefUrl;
     try {
       final regionResponse = await http.get(Uri.parse(regionUrl));
       final prefResponse = await http.get(Uri.parse(prefUrl));
