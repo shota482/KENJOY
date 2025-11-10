@@ -63,12 +63,5 @@ final goRouter = GoRouter(
         ),
       ],
     ),
-    GoRoute(
-      path: RegionListPage.path,
-      name: 'RegionSelect',
-      pageBuilder: (BuildContext context, GoRouterState? state) => MaterialPage(
-        child: RegionListPage(),
-      ),
-    ),
   ],
 );
