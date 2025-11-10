@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:http/http.dart' as http;
 import 'dart:convert';
-import '../models/prefecture.dart';
+import '../models/prefecture_json.dart';
 
 class PrefectureListPage extends StatefulWidget {
   final int regionId;

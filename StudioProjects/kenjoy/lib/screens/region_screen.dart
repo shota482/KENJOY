@@ -5,7 +5,7 @@ import 'package:go_router/go_router.dart';
 import 'package:http/http.dart' as http;
 import 'package:kenjoy/screens/page1.dart';
 
-import '../models/prefecture.dart';
+import '../models/prefecture_json.dart';
 import '../models/region.dart';
 import '../models/urls.dart';
 
