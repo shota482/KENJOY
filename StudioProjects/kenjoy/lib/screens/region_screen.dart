@@ -5,7 +5,7 @@ import 'package:go_router/go_router.dart';
 import 'package:http/http.dart' as http;
 import 'package:kenjoy/screens/page1.dart';
 
-import '../models/prefecture.dart';
+import '../models/prefecture_json.dart';
 import '../models/region.dart';
 import '../models/urls.dart';
 
@@ -30,8 +30,8 @@ class _RegionListPageState extends State<RegionListPage> {
   }
 
   Future<void> fetchData() async {
-    const regionUrl = Urls.RegionUrl;
-    const prefUrl = Urls.PrefUrl;
+    const regionUrl = Urls.regionUrl;
+    const prefUrl = Urls.prefUrl;
     try {
       final regionResponse = await http.get(Uri.parse(regionUrl));
       final prefResponse = await http.get(Uri.parse(prefUrl));
@@ -84,7 +84,7 @@ class _RegionListPageState extends State<RegionListPage> {
                         ),
                         children: [
                           ...prefectures
-                              .where((p) => p.region_id == region.id)
+                              .where((p) => p.regionId == region.id)
                               .map((p) => SizedBox(
                                   height: 50,
                                   width: 90,

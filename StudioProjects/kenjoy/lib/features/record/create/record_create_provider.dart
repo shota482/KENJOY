@@ -1,11 +1,6 @@
-import 'package:riverpod/riverpod.dart';
-
+import 'package:flutter_riverpod/flutter_riverpod.dart';
+import '../../../models/record.dart';
 import 'record_create_state.dart';
-
-final recordCreateProvider =
-    NotifierProvider<RecordCreateNotifier, RecordCreateState>(
-  RecordCreateNotifier.new,
-);
 
 class RecordCreateNotifier extends Notifier<RecordCreateState> {
   @override
@@ -13,23 +8,12 @@ class RecordCreateNotifier extends Notifier<RecordCreateState> {
     return RecordCreateState();
   }
 
-  void updateTitle(String value) {
-    state = state.copyWith(title: value);
-  }
-
-  void updateContent(String value) {
-    state = state.copyWith(content: value);
-  }
-
-  Future<void> submit() async {
-    if (state.title.isEmpty || state.content.isEmpty) return;
-
-    state = state.copyWith(isLoading: true);
-
-    //DB保存処理
-    await Future.delayed(const Duration(seconds: 1));
-    print("submit:${state.title},${state.content}");
-
-    state = state.copyWith(isLoading: false);
+  void createRecord(RecordModel record){
+    state = state.copyWith(record: record);
   }
 }
+
+final recordCreateProvider =
+NotifierProvider<RecordCreateNotifier, RecordCreateState>(
+      () => RecordCreateNotifier(),
+);

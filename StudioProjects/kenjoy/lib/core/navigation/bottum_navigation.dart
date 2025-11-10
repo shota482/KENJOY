@@ -1,11 +1,11 @@
 import 'package:flutter/material.dart';
 import 'package:go_router/go_router.dart';
 import 'package:kenjoy/features/record/create/record_create_screen.dart';
+import 'package:kenjoy/features/record/view/record_listview_screen.dart';
 
 
-import '../../features/record/map/mapReviewScreen.dart';
+import '../../features/record/map/map_review_screen.dart';
 import '../../screens/home_screen.dart';
-import '../../screens/page1.dart';
 
 class AppNavigationBar extends StatelessWidget {
   const AppNavigationBar({super.key});
@@ -16,6 +16,9 @@ class AppNavigationBar extends StatelessWidget {
     int selectedIndex = switch (true) {
       _ when location.startsWith(MapReviewPage.path) => 1,
       _ when location.startsWith(RecordCreatePage.path) => 2,
+      _ when location.startsWith(RecordListPage.path) => 3,
+    //TODO replace account path
+      _ when location.startsWith(RecordCreatePage.path) => 4,
       _ => 0
     };
 
@@ -33,6 +36,10 @@ class AppNavigationBar extends StatelessWidget {
           case 2:
             context.go(RecordCreatePage.path);
             break;
+          case 3:
+            context.go(RecordListPage.path);
+            break;
+
         }
       },
       destinations: const[

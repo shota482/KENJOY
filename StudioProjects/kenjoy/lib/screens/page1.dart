@@ -2,12 +2,12 @@ import 'package:flutter/material.dart';
 import 'package:go_router/go_router.dart';
 import 'region_screen.dart';
 class Page1 extends StatefulWidget {
-  const Page1({Key? key}) : super(key: key);
+  const Page1({super.key});
   static const path = '/RecordList';
   @override
-  _Page1State createState() => _Page1State();
+  Page1State createState() => Page1State();
 }
-class _Page1State extends State<Page1> {
+class Page1State extends State<Page1> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(

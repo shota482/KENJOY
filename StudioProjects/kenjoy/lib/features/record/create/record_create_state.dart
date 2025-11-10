@@ -1,23 +1,20 @@
+import 'package:kenjoy/models/record.dart';
 
 class RecordCreateState {
-  final String title;
-  final String content;
+  final RecordModel? record;
   final bool isLoading;
 
   RecordCreateState({
-    this.title = "",
-    this.content = "",
+    this.record,
     this.isLoading = false,
   });
 
   RecordCreateState copyWith({
-    String? title,
-    String? content,
+    RecordModel? record,
     bool? isLoading,
   }) {
     return RecordCreateState(
-        title: title ?? this.title,
-        content: content ?? this.content,
+        record: record ?? this.record ,
         isLoading: isLoading ?? this.isLoading
     );
   }
