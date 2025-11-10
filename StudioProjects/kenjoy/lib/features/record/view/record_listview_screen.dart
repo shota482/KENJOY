@@ -3,7 +3,6 @@ import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:go_router/go_router.dart';
 import 'package:kenjoy/features/record/create/record_create_screen.dart';
 import 'package:kenjoy/features/record/view/record_listview_state.dart';
-import 'package:kenjoy/models/record.dart';
 
 
 class RecordListPage extends ConsumerWidget {
