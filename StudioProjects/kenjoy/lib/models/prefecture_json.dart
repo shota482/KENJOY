@@ -1,15 +1,15 @@
 class Prefecture {
-  final int pref_id;
-  final int region_id;
+  final int prefId;
+  final int regionId;
   final String name;
 
-  Prefecture({required this.pref_id, required this.name, required this.region_id});
+  Prefecture({required this.prefId, required this.name, required this.regionId});
 
   factory Prefecture.fromJson(Map<String, dynamic> json) {
     return Prefecture(
-      pref_id: json['id'],
+      prefId: json['id'],
       name: json['name'],
-      region_id: json['region'],
+      regionId: json['region'],
     );
   }
 }

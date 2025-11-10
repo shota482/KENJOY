@@ -7,7 +7,6 @@ import '../features/record/create/record_create_screen.dart';
 import '../features/record/view/record_listview_screen.dart';
 import '../screens/home_screen.dart';
 import '../screens/page1.dart';
-import '../screens/region_screen.dart';
 
 final goRouter = GoRouter(
   initialLocation: HomePage.path,

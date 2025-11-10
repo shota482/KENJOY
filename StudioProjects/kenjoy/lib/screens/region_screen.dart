@@ -84,7 +84,7 @@ class _RegionListPageState extends State<RegionListPage> {
                         ),
                         children: [
                           ...prefectures
-                              .where((p) => p.region_id == region.id)
+                              .where((p) => p.regionId == region.id)
                               .map((p) => SizedBox(
                                   height: 50,
                                   width: 90,
