@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
+import 'package:go_router/go_router.dart';
+import 'package:kenjoy/features/record/create/record_create_screen.dart';
 import 'package:kenjoy/features/record/view/record_listview_state.dart';
 import 'package:kenjoy/models/record.dart';
 
@@ -77,16 +79,7 @@ class RecordListPage extends ConsumerWidget {
         },
       ),
       floatingActionButton: FloatingActionButton(
-        onPressed: () {
-          // ダミーデータ追加（動作確認用）
-          final newRecord = RecordModel(
-            title: '新しい記録 ${records.length + 1}',
-            startDate: DateTime.now(),
-            prefs: ['東京', '大阪'],
-            tags: ['旅行', '出張'],
-          );
-          notifier.addRecord(newRecord);
-        },
+        onPressed:() =>  GoRouter.of(context).push(RecordCreatePage.path),
         child: const Icon(Icons.add),
       ),
     );
