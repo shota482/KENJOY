@@ -21,20 +21,26 @@ class MapReviewPage extends ConsumerWidget {
         title: const Text('マップ画面'),
       ),
       body: SafeArea(
-        child: Column(mainAxisAlignment: MainAxisAlignment.center, children: [
-          Padding(
-            padding: const EdgeInsets.all(8.0),
-            child: Center(
-              child: SvgPicture.asset(
-                'assets/images/japan_map.svg',
-                semanticsLabel: 'Japan map',
-                width: 300,
-                height: 300,
-                fit: BoxFit.contain, // ← 見切れ防止
+        child: Column(children: [
+          ExpansionTile(
+            title: const Text('マップ'),
+            initiallyExpanded: true,
+            children: [
+              Padding(
+                padding: const EdgeInsets.all(8.0),
+                child: Center(
+                  child: SvgPicture.asset(
+                    'assets/images/japan_map.svg',
+                    semanticsLabel: 'Japan map',
+                    width: 300,
+                    height: 300,
+                    fit: BoxFit.contain, // ← 見切れ防止
+                  ),
+                ),
               ),
-            ),
+            ],
           ),
-          const Divider(),
+
           Expanded(
             child: records.isEmpty
                 ? const Center(child: Text('記録がまだありません'))
@@ -51,7 +57,6 @@ class MapReviewPage extends ConsumerWidget {
                             picUrls: record.picUrls,
                             tags: record.tags),
                       );
-                      return null;
                     }),
           ),
         ]),
